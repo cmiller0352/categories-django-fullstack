@@ -1,0 +1,12 @@
+{% extends 'categoriesAndPosts/base.html' %}
+{% block content %}
+<div>
+  <h1><a href="/">{{ category.category_name }}</a></h1>
+      <h2><a href="">{{ category.topic }}</a></h2>
+
+  </div>
+
+  <a href="{% url 'delete_category' pk=category.pk %}">Delete This Category</a>
+  {% endblock %}
+
+

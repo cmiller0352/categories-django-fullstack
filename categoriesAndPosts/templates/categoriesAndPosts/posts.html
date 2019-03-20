@@ -1,0 +1,8 @@
+<h1>Posts of category: {{ category.category_name }}</h1>
+<ul>
+  {% for category in categories %}
+<li>
+{{ post.post_name }} 
+</li>
+{% endfor %}
+</ul>
