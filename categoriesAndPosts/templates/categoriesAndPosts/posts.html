@@ -1,8 +1,24 @@
-<h1>Posts of category: {{ category.category_name }}</h1>
-<ul>
-  {% for category in categories %}
-<li>
-{{ post.post_name }} 
-</li>
-{% endfor %}
-</ul>
+{% extends 'categoriesAndPosts/base.html' %}
+{% block content %}
+<div class="w3-container w3-light-grey">
+  <h1>
+    Posts in 
+    {{ category.category_name }}:
+  </h1>
+  <p>
+    fdxbgbf
+  </p>
+  <ul>
+    {% for category in categories %}
+      <li>
+        {{ post.post_name }} 
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'new_post' pk=category.pk %}">
+    <button class="button button4">
+      add new post
+    </button>
+  </a>
+</div>
+{% endblock %}

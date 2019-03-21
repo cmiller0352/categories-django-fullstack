@@ -2,10 +2,25 @@
 
 {% block content %}
   {% for category in categories %}
-      <div class="post">
-        <h2><a href="{% url 'category_detail' pk=category.pk %}">{{ category.category_name }}</a></h2>
-          <p>{{ category.topic|linebreaksbr }}</p>
-      </div>
-      <a href="{% url 'delete_category' pk=category.pk %}">Delete This category</a>
+      <div class="w3-container w3-light-grey">
+        <h2>
+          <a href="{% url 'category_detail' pk=category.pk %}">
+            {{ category.category_name }}
+          </a>
+        </h2>
+          <p>
+            {{ category.topic|linebreaksbr }}
+          </p>
+          <a href="{% url 'delete_category' pk=category.pk %}">        
+            <button class="button button4">
+              Delete
+            </button>
+          </a>
+          <a href="{% url 'edit_category' pk=category.pk %}">
+            <button class="button button4">
+              Edit
+            </button>
+          </a>       
+        </div>
   {% endfor %}
 {% endblock %}

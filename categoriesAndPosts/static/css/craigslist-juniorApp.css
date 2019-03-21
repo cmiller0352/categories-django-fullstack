@@ -1,3 +1,8 @@
+a {
+  text-decoration: none !important;
+  font-size: 16pt;
+}
+
 .page-header {
   background-color: #C25100;
   margin-top: 0;
@@ -15,7 +20,13 @@
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Lobster', cursive;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 14pt;
+  font-family: sans-serif;
+}
+
+.h1-text {
+  font-family: sans-serif;
 }
 
 .date {
@@ -33,7 +44,7 @@ h1, h2, h3, h4 {
 .top-menu, .top-menu:hover, .top-menu:visited {
   color: #ffffff;
   float: right;
-  font-size: 26pt;
+  font-size: 20pt;
   margin-right: 20px;
 }
 
@@ -44,3 +55,34 @@ h1, h2, h3, h4 {
 .post h1 a, .post h1 a:visited {
   color: #000000;
 }
+
+.cat-topic {
+  font-size: 20pt;
+}
+
+.w3-container {
+  margin: 10px;
+}
+
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button4 {
+  background-color: #e7e7e7;
+  color: black;
+  border: 2px solid #e7e7e7;
+}
+
+.button4:hover {background-color: white;}

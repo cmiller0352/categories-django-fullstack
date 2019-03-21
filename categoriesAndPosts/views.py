@@ -1,6 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Category, Post
 from .forms import CategoryForm, PostForm
+from IPython import embed
+
+
+def home_page_render(request):
+    return render(request, 'categoriesAndPosts/home.html')
 
 def category_list(request):
     categories = Category.objects.all()
@@ -59,20 +64,18 @@ def post_list(request, pk):
 
 
 def post_detail(request, pk, fk):
-    post = get_object_or_404(Post, pk=pk)
-    print({pk})
+    post = get_object_or_404(Post, pk=fk)
     return render(request, 'categoriesAndPosts/post_detail.html', {'post': post})
     
 
 def edit_post(request, pk, fk):
-    post = get_object_or_404(Post, fk=fk)
+    post = get_object_or_404(Post, pk=fk)
     if request.method == "POST":
-        form = CategoryForm(request.POST, instance=post)
+        form = PostForm(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.save()
-            print({post.fk})
-            return redirect('post_detail', fk=post.fk)
+            return redirect('post_detail', fk=post.pk, pk=pk)
     else:
         form = PostForm(instance=post)
     return render(request, 'categoriesAndPosts/post_form.html', {'form': form, 'type_of_request': 'Edit'})
@@ -82,3 +85,9 @@ def delete_post(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('category_list')
+
+def handler404(request):
+    return render(request, '404.html', status=404)
+    
+def handler500(request):
+    return render(request, '500.html', status=500)
